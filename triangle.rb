@@ -14,9 +14,23 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  raise TriangleError, "triangle is non-existent" if [a,b,c].min <= 0
+
+  raise TriangleError, "impossible dimensions" if a + b < c
+
+  raise TriangleError, "dimensions are wrong" if ((a + b == c) || (b + c == a) || (a + c == b))
+
+  if ((a == b) && (a == c))
+    return :equilateral
+  else if ((a == b) || (a == c) || (b == c))
+    return :isosceles
+  else
+    return :scalene
+  end
+end
 end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
 end
+
