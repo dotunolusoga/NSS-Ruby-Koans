@@ -85,7 +85,6 @@ class AboutSandwichCode < Neo::Koan
         return line if line.match(/e/)
       end
     end
-    # Rewrite find_line using the file_sandwich library function.
   end
 
   def test_finding_lines2

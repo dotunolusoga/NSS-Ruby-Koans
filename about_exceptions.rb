@@ -15,6 +15,7 @@ class AboutExceptions < Neo::Koan
   def test_rescue_clause
     result = nil
     begin
+      # Equivalent to raise RuntimeError.new('Oops')
       fail "Oops"
     rescue StandardError => ex
       result = :exception_handled

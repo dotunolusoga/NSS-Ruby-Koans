@@ -14,20 +14,17 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  raise TriangleError, "triangle is non-existent" if [a,b,c].min <= 0
+  raise TriangleError, "triangle is non-existent" if [a, b, c].any?{ |value| value <= 0 }
 
-  raise TriangleError, "impossible dimensions" if a + b < c
-
-  raise TriangleError, "dimensions are wrong" if ((a + b == c) || (b + c == a) || (a + c == b))
-
-  if ((a == b) && (a == c))
+  raise TriangleError, "impossible dimensions" unless (a + b) > c && (b + c) > a && (a + c) > b
+  sides_equal = [ a == b, b == c, a == c]
+  if sides_equal.all?
     return :equilateral
-  else if ((a == b) || (a == c) || (b == c))
+  elsif sides_equal.any?
     return :isosceles
   else
     return :scalene
   end
-end
 end
 
 # Error class used in part 2.  No need to change this code.

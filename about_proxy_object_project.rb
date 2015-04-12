@@ -16,6 +16,9 @@ class Proxy
   def initialize(target_object)
     @object = target_object
     # ADD MORE CODE HERE
+    def channel
+      :channel=
+    end
   end
 
   # WRITE CODE HERE
